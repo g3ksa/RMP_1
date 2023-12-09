@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hui_zalupa
+    ports:
+      - 127.0.0.1:5000:5000
+    deploy:
+        mode: replicated
+        replicas: 1
+        restart_policy:
+          condition: on-failure
